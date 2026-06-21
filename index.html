@@ -56,11 +56,18 @@
         }
         .zmanim-widget {
             background: white;
-            padding: 1rem;
+            padding: 1.2rem;
             border-radius: 6px;
             border-left: 4px solid var(--secondary-color);
-            min-height: 150px;
+            font-size: 1.1rem;
         }
+        .zmanim-item {
+            margin: 0.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .zmanim-item:last-child { border: none; }
+        .zmanim-label { font-weight: bold; color: var(--primary-color); }
         form {
             display: flex;
             flex-direction: column;
@@ -98,16 +105,18 @@
     </header>
 
     <nav>
-        <a href="#">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact & Mi Sheberach</a>
+        <a href="index.html">Home</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="family.html">Member Registration</a>
+        <a href="yahrzeit.html">Yahrzeit Board</a>
+        <a href="resources.html">Resources</a>
     </nav>
 
     <div class="container">
         <div class="main-content">
             <section id="about">
                 <h2>Welcome to Our Shul</h2>
-                <p>We offer daily minyanim, inspiring classes, community holiday events, and a vibrant, non-judgmental environment where anyone can feel at home. Whether you are visiting or looking for a permanent community, our doors are open.</p>
+                <p>We offer shabbos and holiday services. </p>
             </section>
             
             <hr style="border: 0; height: 1px; background: #e2e8f0; margin: 2rem 0;">
@@ -132,16 +141,45 @@
 
         <div class="sidebar">
             <h3>Shabbat Times</h3>
-            <div class="zmanim-widget">
-                <script src="https://www.hebcal.com/shabbat/widget.js?geonameid=993800&amp;b=18&amp;M=on&amp;lg=s&amp;w=img&amp;v=1" async></script>
+            <div class="zmanim-widget" id="zmanim-box">
+                Loading live times...
             </div>
-            <p style="font-size: 0.85rem; color: #718096; margin-top: 1rem;">Times are calculated automatically for your area via Hebcal.</p>
+            <p style="font-size: 0.85rem; color: #718096; margin-top: 1rem;">Times are calculated automatically for Johannesburg via Hebcal API.</p>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2026 Chabad of Hurlingham. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        async function fetchZmanim() {
+            try {
+                const response = await fetch('https://www.hebcal.com/shabbat?cfg=json&geonameid=993800&b=18&M=on');
+                const data = await response.json();
+                
+                let htmlContent = '';
+                
+                data.items.forEach(item => {
+                    if (item.category === 'parashat') {
+                        htmlContent += `<div class="zmanim-item"><span class="zmanim-label">Torah Portion:</span><br>${item.title}</div>`;
+                    } else if (item.category === 'candles') {
+                        const time = item.title.split(': ')[1];
+                        htmlContent += `<div class="zmanim-item"><span class="zmanim-label">Candle Lighting:</span><br>${time}</div>`;
+                    } else if (item.category === 'havdalah') {
+                        const time = item.title.split(': ')[1];
+                        htmlContent += `<div class="zmanim-item"><span class="zmanim-label">Shabbat Ends:</span><br>${time}</div>`;
+                    }
+                });
+
+                document.getElementById('zmanim-box').innerHTML = htmlContent || 'No Shabbat times found for this week.';
+            } catch (error) {
+                document.getElementById('zmanim-box').innerHTML = 'Unable to load times. Please check back shortly.';
+                console.error('Hebcal Fetch Error:', error);
+            }
+        }
+        fetchZmanim();
+    </script>
 
 </body>
 </html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Schedule - Chabad of Hurlingham</title>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --text-color: #2d3748;
+            --light-bg: #f7fafc;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: #fff;
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        header h1 { margin: 0; font-size: 2.5rem; }
+        nav {
+            background-color: var(--secondary-color);
+            text-align: center;
+            padding: 0.5rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 850px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: var(--light-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .calendar-container {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            max-width: 100%;
+            overflow-x: auto;
+            margin-top: 1.5rem;
+        }
+        .calendar-container iframe {
+            max-width: 100%;
+        }
+        @media (max-width: 850px) {
+            .calendar-container iframe {
+                width: 100% !important;
+                height: 450px !important;
+            }
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--primary-color);
+            color: white;
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Chabad of Hurlingham</h1>
+        <p>Community Membership Portal</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="family.html">Member Registration</a>
+        <a href="yahrzeit.html">Yahrzeit Board</a>
+        <a href="resources.html">Resources</a>
+    </nav>
+
+    <div class="container">
+        <h2>Upcoming Events</h2>
+        <div class="calendar-container">
+            <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Africa%2FJohannesburg&showPrint=0&src=MmY5YjBhMzczODBiMThjMTUyNWY2NzZjMTY3YjlhZjI5NWEzYTc5MTgzYjFiNWFhZTc1OTdiNzZhYWFlOThkYkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uc2EjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&src=c2E2cnJib3UxZDgxcGE5NzdmNjRsZ3MzZWFxOXRpZmRAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23d50000&color=%230b8043&color=%23a79b8e" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Chabad of Hurlingham. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
