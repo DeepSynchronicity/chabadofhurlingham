@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery - Chabad of Hurlingham</title>
+    <link rel="icon" type="image/webp" href="icon.webp">
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --text-color: #2d3748;
+            --light-bg: #f7fafc;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: #fff;
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        header h1 { margin: 0; font-size: 2.5rem; }
+        nav {
+            background-color: var(--secondary-color);
+            text-align: center;
+            padding: 0.5rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+
+        /* Gallery Page Layout Elements */
+        .gallery-container {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+        .gallery-intro {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .gallery-intro h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Grid Configuration */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            background: var(--light-bg);
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #eef2f5;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .gallery-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-caption {
+            padding: 12px 15px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            background: #ffffff;
+            border-top: 1px solid #eef2f5;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--primary-color);
+            color: white;
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Chabad of Hurlingham</h1>
+        <p>Community Photo Gallery</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="register.html">Member Registration</a>
+        <a href="yahrzeit.html">Yahrzeit Board</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="resources.html">Resources</a>
+
+    </nav>
+
+    <div class="gallery-container">
+        <div class="gallery-intro">
+            <h2>Our Community in Action</h2>
+            <p>Moments from our shul services, holiday celebrations, and community events.</p>
+        </div>
+
+        <!-- Start of Image Gallery -->
+        <div class="image-gallery">
+            
+            <!-- Photo 1 -->
+            <div class="gallery-item">
+                <img src="images/shabbat.jpg" alt="Shabbat Services at Chabad of Hurlingham">
+                <div class="gallery-caption">Shabbat Services</div>
+            </div>
+
+            <!-- Photo 2 -->
+            <div class="gallery-item">
+                <img src="images/purim.jpg" alt="Purim Celebration">
+                <div class="gallery-caption">Purim Celebration</div>
+            </div>
+
+            <!-- Photo 3 -->
+            <div class="gallery-item">
+                <img src="images/chanukah.jpg" alt="Chanukah Menorah Lighting">
+                <div class="gallery-caption">Public Menorah Lighting</div>
+            </div>
+
+            <!-- Photo 4 -->
+            <div class="gallery-item">
+                <img src="images/shiur.jpg" alt="Community Torah Class">
+                <div class="gallery-caption">Weekly Torah Study</div>
+            </div>
+
+            <!-- Photo 5 -->
+            <div class="gallery-item">
+                <img src="images/children.jpg" alt="Children's Holiday Program">
+                <div class="gallery-caption">Youth Programs</div>
+            </div>
+
+            <!-- Photo 6 -->
+            <div class="gallery-item">
+                <img src="images/shul.jpg" alt="Chabad of Hurlingham Sanctuary">
+                <div class="gallery-caption">Our Sanctuary</div>
+            </div>
+
+        </div>
+        <!-- End of Image Gallery -->
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Chabad of Hurlingham. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
