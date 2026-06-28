@@ -1,58 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WHBNV5XZHF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-WHBNV5XZHF');
-</script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WHBNV5XZHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WHBNV5XZHF');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Chabad of Hurlingham</title>
     <link rel="icon" type="image/webp" href="icon.webp">
+    
+    <!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary-color: #1a365d;
-            --secondary-color: #2b6cb0;
-            --text-color: #2d3748;
-            --light-bg: #f7fafc;
+            --primary-color: #0f2038;       /* Deeper, more premium navy */
+            --secondary-color: #1d4ed8;     /* Vibrant royal blue for highlights */
+            --text-color: #1e293b;          /* Clean slate text */
+            --light-bg: #ffffff;            /* Pure white background for content blocks */
+            --accent-gold: #b89222;         /* Sophisticated gold accent */
         }
         * { box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             margin: 0;
             padding: 0;
             color: var(--text-color);
-            background-color: #fff;
+            background-color: #f1f5f9;      /* Light slate body background to make cards pop */
             line-height: 1.6;
         }
         header {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1e3a8a 100%);
             color: white;
-            padding: 2rem;
+            padding: 3.5rem 2rem;
             text-align: center;
+            border-bottom: 4px solid var(--accent-gold);
         }
-        header h1 { margin: 0; font-size: 2.5rem; }
-        header p { margin: 0.5rem 0 0; }
+        header h1 { 
+            margin: 0; 
+            font-size: 3rem; 
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        header p {
+            margin-top: 0.5rem;
+            opacity: 0.9;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+        }
         nav {
-            background-color: var(--secondary-color);
+            background-color: rgba(15, 32, 56, 0.95);
+            backdrop-filter: blur(8px);
             text-align: center;
-            padding: 0.5rem;
+            padding: 0.75rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
         nav a {
-            color: white;
+            color: #e2e8f0;
             text-decoration: none;
             margin: 0 15px;
-            font-weight: bold;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease, border-bottom 0.2s ease;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
         }
-        nav a:hover { text-decoration: underline; }
+        nav a:hover {
+            color: white;
+            border-bottom: 2px solid var(--accent-gold);
+        }
 
         /* Page Layout */
         .contact-wrapper {
-            max-width: 600px;
+            max-width: 650px;
             margin: 3rem auto;
             padding: 0 1.5rem;
         }
@@ -60,15 +92,17 @@
         /* Info Panel */
         .contact-info {
             background: var(--light-bg);
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--primary-color);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
         }
         .contact-info h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
             color: var(--primary-color);
             margin-top: 0;
-            font-size: 1.6rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
         }
         .info-item {
             display: flex;
@@ -90,48 +124,53 @@
             margin-top: 2px;
         }
         .info-label {
-            font-weight: bold;
+            font-weight: 600;
             color: var(--primary-color);
             display: block;
             margin-bottom: 2px;
         }
         .info-value {
             color: var(--text-color);
-            font-size: 0.97rem;
+            font-size: 1rem;
         }
         .info-value a {
             color: var(--secondary-color);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
-        .info-value a:hover { text-decoration: underline; }
+        .info-value a:hover { 
+            text-decoration: underline;
+        }
 
-        /* Shabbat note */
+        /* Shabbat note styled to match the index widget tone */
         .shabbat-note {
-            background: #ebf4ff;
-            border-left: 4px solid var(--secondary-color);
-            border-radius: 4px;
-            padding: 0.8rem 1rem;
-            font-size: 0.88rem;
-            color: #2c5282;
-            margin-top: 1.5rem;
+            background: #f8fafc;
+            border-left: 4px solid var(--accent-gold);
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            font-size: 0.95rem;
+            color: #475569;
+            margin-top: 2rem;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
         }
-
-
 
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             background: var(--primary-color);
-            color: white;
-            margin-top: 5rem;
+            color: #94a3b8;
+            margin-top: 6rem;
+            border-top: 4px solid var(--accent-gold);
+            font-size: 0.9rem;
         }
+        footer p { margin: 0; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Chabad of Hurlingham</h1>
-        <p>Contact Us</p>
+        <p>Welcoming every Jew with warmth and open arms</p>
     </header>
 
     <nav>
@@ -146,7 +185,7 @@
 
     <div class="contact-wrapper">
 
-        <!-- Left: Contact Info -->
+        <!-- Contact Info Card -->
         <div class="contact-info">
             <h2>Get in Touch</h2>
 
@@ -183,7 +222,7 @@
             </div>
 
             <div class="info-item">
-                <div class="info-icon">🕍</div>
+                <div class="info-icon"> synagogue 🕍</div>
                 <div>
                     <span class="info-label">Rabbi</span>
                     <span class="info-value">Rabbi [Name]<br><a href="mailto:rabbi@chabadhurlingham.co.za">rabbi@chabadhurlingham.co.za</a></span>
@@ -191,7 +230,7 @@
             </div>
 
             <div class="shabbat-note">
-                🕯️ <strong>Please note:</strong> We do not respond to messages on Shabbat or Jewish holidays. We'll get back to you as soon as possible after.
+                <strong>Please note:</strong> We do not respond to messages on Shabbat or Jewish holidays. We'll get back to you as soon as possible after.
             </div>
         </div>
 
@@ -200,8 +239,6 @@
     <footer>
         <p>&copy; 2026 Chabad of Hurlingham. All Rights Reserved.</p>
     </footer>
-
-
 
 </body>
 </html>

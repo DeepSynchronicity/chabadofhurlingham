@@ -1,51 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WHBNV5XZHF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-WHBNV5XZHF');
-</script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WHBNV5XZHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WHBNV5XZHF');
+    </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community Resources - Chabad of Hurlingham</title>
     <link rel="icon" type="image/webp" href="icon.webp">
+    
+    <!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary-color: #1a365d;
-            --secondary-color: #2b6cb0;
-            --text-color: #2d3748;
-            --light-bg: #f7fafc;
+            --primary-color: #0f2038;       /* Deeper, more premium navy */
+            --secondary-color: #1d4ed8;     /* Vibrant royal blue for highlights */
+            --text-color: #1e293b;          /* Clean slate text */
+            --light-bg: #ffffff;            /* Pure white background for content blocks */
+            --accent-gold: #b89222;         /* Sophisticated gold accent */
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             margin: 0;
             padding: 0;
             color: var(--text-color);
-            background-color: #fff;
+            background-color: #f1f5f9;      /* Light slate body background to make cards pop */
             line-height: 1.6;
         }
         header {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1e3a8a 100%);
             color: white;
-            padding: 2rem;
+            padding: 3.5rem 2rem;
             text-align: center;
+            border-bottom: 4px solid var(--accent-gold);
         }
-        header h1 { margin: 0; font-size: 2.5rem; }
+        header h1 { 
+            margin: 0; 
+            font-size: 3rem; 
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        header p {
+            margin-top: 0.5rem;
+            opacity: 0.9;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+        }
         nav {
-            background-color: var(--secondary-color);
+            background-color: rgba(15, 32, 56, 0.95);
+            backdrop-filter: blur(8px);
             text-align: center;
-            padding: 0.5rem;
+            padding: 0.75rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
         nav a {
-            color: white;
+            color: #e2e8f0;
             text-decoration: none;
             margin: 0 15px;
-            font-weight: bold;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease, border-bottom 0.2s ease;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+        nav a:hover {
+            color: white;
+            border-bottom: 2px solid var(--accent-gold);
         }
         .resources-container {
             max-width: 1100px;
@@ -56,77 +90,85 @@
             margin-bottom: 40px;
         }
         .category-title {
-            font-size: 1.5rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 700;
             color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 8px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
         }
         .resource-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
         .resource-card {
             background: var(--light-bg);
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border: 1px solid #eef2f5;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .resource-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         .card-content h3 {
-            font-size: 1.2rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.35rem;
+            font-weight: 700;
             color: var(--primary-color);
-            margin-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
         }
         .card-content p {
             font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 20px;
+            color: #475569;
+            margin-bottom: 1.5rem;
         }
         .resource-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 5px;
+            padding: 0.75rem;
+            border-radius: 6px;
             font-weight: 600;
-            font-size: 0.9rem;
-            transition: background-color 0.2s;
+            font-size: 0.95rem;
+            transition: background 0.2s, transform 0.1s;
         }
         .btn-link {
-            background-color: #eef2f5;
-            color: var(--text-color);
-            border: 1px solid #cbd5e0;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
         }
         .btn-link:hover {
-            background-color: #e2e8f0;
+            background-color: var(--secondary-color);
+        }
+        .btn-link:active {
+            transform: scale(0.98);
         }
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             background: var(--primary-color);
-            color: white;
-            margin-top: 5rem;
+            color: #94a3b8;
+            margin-top: 6rem;
+            border-top: 4px solid var(--accent-gold);
+            font-size: 0.9rem;
         }
+        footer p { margin: 0; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Chabad of Hurlingham</h1>
-        <p>Community Resources</p>
+        <p>Welcoming every Jew with warmth and open arms</p>
     </header>
 
     <nav>
@@ -186,9 +228,54 @@
                 <div class="resource-card">
                     <div class="card-content">
                         <h3>Chabad House South Africa</h3>
-                        <p>Chabad House South Africa Official Website</p>
+                        <p>Discover regional centers, dynamic educational programs, social services, and vibrant communal events run by Chabad across South Africa.</p>
                     </div>
-                    <a href="https://www.chabadsouthafrica.org/" target="_blank" class="resource-btn btn-link">🔗 Chabad House</a>
+                    <a href="https://www.chabadsouthafrica.org/" target="_blank" class="resource-btn btn-link">🔗 Chabad House SA</a>
+                </div>
+
+                <!-- Link 6: Chevrah Kadisha -->
+                <div class="resource-card">
+                    <div class="card-content">
+                        <h3>Johannesburg Chevrah Kadisha</h3>
+                        <p>Access the central organization handling welfare assistance, residential care facilities, social services, and traditional Jewish burial needs.</p>
+                    </div>
+                    <a href="https://jhbchev.co.za/" target="_blank" class="resource-btn btn-link">🔗 Visit Chevrah Kadisha</a>
+                </div>
+
+                <!-- Link 7: The Beth Din -->
+                <div class="resource-card">
+                    <div class="card-content">
+                        <h3>The Beth Din of Johannesburg</h3>
+                        <p>The core Halachic authority facilitating regional oversight, religious dispute resolutions, conversions, and specialized family law guidance.</p>
+                    </div>
+                    <a href="https://jhbbethdin.co.za/" target="_blank" class="resource-btn btn-link">🔗 Open Beth Din</a>
+                </div>
+
+                <!-- Link 8: Hatzollah -->
+                <div class="resource-card">
+                    <div class="card-content">
+                        <h3>Hatzollah Medical Rescue</h3>
+                        <p>A trusted volunteer-based emergency organization delivering rapid, premium medical response and emotional crisis support.</p>
+                    </div>
+                    <a href="https://hatzolah.co.za/" target="_blank" class="resource-btn btn-link">🔗 Contact Hatzollah</a>
+                </div>
+
+                <!-- Link 9: CSO -->
+                <div class="resource-card">
+                    <div class="card-content">
+                        <h3>Community Security Organisation (CSO)</h3>
+                        <p>Safeguarding local Jewish entities and lifestyle via proactive intelligence, security installations, incident handling, and rescue operations.</p>
+                    </div>
+                    <a href="https://cso.org.za/" target="_blank" class="resource-btn btn-link">🔗 Visit CSO</a>
+                </div>
+
+                <!-- Link 10: SAJR -->
+                <div class="resource-card">
+                    <div class="card-content">
+                        <h3>South African Jewish Report (SAJR)</h3>
+                        <p>Stay informed with premium local news coverages, thought-provoking opinions, and up-to-date weekly events centered around SA Jewry.</p>
+                    </div>
+                    <a href="https://www.sajr.co.za/" target="_blank" class="resource-btn btn-link">🔗 Read SAJR</a>
                 </div>
             </div>
         </div>

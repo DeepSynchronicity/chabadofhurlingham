@@ -1,64 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WHBNV5XZHF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-WHBNV5XZHF');
-</script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WHBNV5XZHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WHBNV5XZHF');
+    </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yahrzeit Memorial Board - Chabad of Hurlingham</title>
     <link rel="icon" type="image/webp" href="icon.webp">
+    
+    <!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary-color: #1a365d;
-            --secondary-color: #2b6cb0;
-            --text-color: #2d3748;
-            --light-bg: #f7fafc;
-            --gold-accent: #b89222;
+            --primary-color: #0f2038;       /* Deeper, more premium navy */
+            --secondary-color: #1d4ed8;     /* Vibrant royal blue for highlights */
+            --text-color: #1e293b;          /* Clean slate text */
+            --light-bg: #ffffff;            /* Pure white background for content blocks */
+            --accent-gold: #b89222;         /* Sophisticated gold accent */
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             margin: 0;
             padding: 0;
             color: var(--text-color);
-            background-color: #fff;
+            background-color: #f1f5f9;      /* Light slate body background to make cards pop */
             line-height: 1.6;
         }
         header {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1e3a8a 100%);
             color: white;
-            padding: 2rem;
+            padding: 3.5rem 2rem;
             text-align: center;
+            border-bottom: 4px solid var(--accent-gold);
         }
-        header h1 { margin: 0; font-size: 2.5rem; }
+        header h1 { 
+            margin: 0; 
+            font-size: 3rem; 
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        header p {
+            margin-top: 0.5rem;
+            opacity: 0.9;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+        }
         nav {
-            background-color: var(--secondary-color);
+            background-color: rgba(15, 32, 56, 0.95);
+            backdrop-filter: blur(8px);
             text-align: center;
-            padding: 0.5rem;
+            padding: 0.75rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
         nav a {
-            color: white;
+            color: #e2e8f0;
             text-decoration: none;
             margin: 0 15px;
-            font-weight: bold;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease, border-bottom 0.2s ease;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+        nav a:hover {
+            color: white;
+            border-bottom: 2px solid var(--accent-gold);
         }
         .container {
-            max-width: 650px;
+            max-width: 700px;
             margin: 3rem auto;
-            padding: 3rem 2rem;
+            padding: 0 1.5rem;
+        }
+        .memorial-card {
             background: #1e2530; /* Darker solemn background inside card */
             color: #f4ebd9;
+            padding: 3.5rem 2.5rem;
             border-radius: 12px;
-            border: 1px solid var(--gold-accent);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--accent-gold);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.2), 0 4px 10px -4px rgba(0, 0, 0, 0.2);
             text-align: center;
-            font-family: 'Georgia', serif;
         }
         .candle-icon {
             font-size: 50px;
@@ -67,77 +102,51 @@
             text-shadow: 0 0 15px #ff6a00;
             animation: flicker 2s infinite alternate;
         }
-        .container h2 {
+        .memorial-card h2 {
+            font-family: 'Playfair Display', Georgia, serif;
             font-size: 2.3rem;
-            color: var(--gold-accent);
+            color: var(--accent-gold);
+            margin-top: 0;
             margin-bottom: 10px;
             letter-spacing: 1px;
+            font-weight: 700;
         }
         .subtitle {
+            font-family: 'Playfair Display', Georgia, serif;
             font-size: 1.2rem;
             font-style: italic;
             color: #e6dfd3;
             margin-bottom: 25px;
         }
-        p {
+        .memorial-card p {
             font-size: 1.05rem;
-            line-height: 1.6;
+            line-height: 1.7;
             margin-bottom: 30px;
             color: #ccc2b2;
         }
         .divider {
             width: 60px;
             height: 2px;
-            background-color: var(--gold-accent);
+            background-color: var(--accent-gold);
             margin: 0 auto 30px auto;
-        }
-        .signup-form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 450px;
-            margin: 0 auto;
-        }
-        .signup-form input {
-            padding: 12px 15px;
-            border-radius: 6px;
-            border: 1px solid #7a6855;
-            background-color: #11151c;
-            color: #fff;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-        .signup-form input:focus {
-            border-color: var(--gold-accent);
-        }
-        .signup-form button {
-            padding: 12px;
-            background-color: var(--gold-accent);
-            color: #171310;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .signup-form button:hover {
-            background-color: #f3c641;
         }
         .footer-quote {
             margin-top: 40px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: #8c7e6c;
+            font-style: italic;
         }
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             background: var(--primary-color);
-            color: white;
-            margin-top: 5rem;
-            font-family: 'Segoe UI', sans-serif;
+            color: #94a3b8;
+            margin-top: 6rem;
+            border-top: 4px solid var(--accent-gold);
+            font-size: 0.9rem;
         }
+        footer p { margin: 0; }
+
         @keyframes flicker {
             0% { transform: scale(1); opacity: 0.9; }
             100% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 20px #ff9d00, 0 0 10px #ff3300; }
@@ -148,7 +157,7 @@
 
     <header>
         <h1>Chabad of Hurlingham</h1>
-        <p>Yahrzeit Board</p>
+        <p>Welcoming every Jew with warmth and open arms</p>
     </header>
 
     <nav>
@@ -162,17 +171,19 @@
     </nav>
 
     <div class="container">
-        <div class="candle-icon">🕯️</div>
-        <h2>Interactive Yahrzeit Board</h2>
-        <div class="subtitle">Honoring the Memory of Our Loved Ones</div>
-        <div class="divider"></div>
-        <p>
-            We are currently developing a dedicated digital Yahrzeit Memorial Board for our community. 
-            This interactive space will beautifully display upcoming anniversaries and keep the memories of those who have passed burning brightly forever.
-        </p>
+        <div class="memorial-card">
+            <div class="candle-icon">🕯️</div>
+            <h2>Interactive Yahrzeit Board</h2>
+            <div class="subtitle">Honoring the Memory of Our Loved Ones</div>
+            <div class="divider"></div>
+            <p>
+                We are currently developing a dedicated digital Yahrzeit Memorial Board for our community. 
+                This interactive space will beautifully display upcoming anniversaries and keep the memories of those who have passed burning brightly forever.
+            </p>
 
-        <div class="footer-quote">
-            "The soul of man is the candle of the Lord." — Proverbs 20:27
+            <div class="footer-quote">
+                "The soul of man is the candle of the Lord." — Proverbs 20:27
+            </div>
         </div>
     </div>
 
