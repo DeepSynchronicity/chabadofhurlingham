@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WHBNV5XZHF"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -13,6 +14,7 @@
     <title>Photo Gallery - Chabad of Hurlingham</title>
     <link rel="icon" type="image/webp" href="icon.webp">
     
+    <!-- Google Fonts Import -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -101,21 +103,38 @@
             font-size: 1.05rem;
         }
 
-        /* Flickr Embed Container Styles */
-        .flickr-embed-wrapper {
+        /* Responsive Grid Configuration */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .gallery-item {
             background: var(--light-bg);
-            padding: 1.5rem;
+            overflow: hidden;
             border-radius: 12px;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-caption {
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            background: var(--light-bg);
             text-align: center;
+            border-top: 1px solid #e2e8f0;
         }
-        /* Ensures the Flickr images scale down cleanly on smaller mobile screens */
-        .flickr-embed-wrapper img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
         footer {
             text-align: center;
             padding: 2.5rem;
@@ -151,9 +170,31 @@
             <p>Moments from our shul services, holiday celebrations, and community events.</p>
         </div>
 
-        <div class="flickr-embed-wrapper">
-            <a data-flickr-embed="true" href="https://www.flickr.com/photos/204706712@N05/albums/72177720334427307" title="Chabad of Hurlingham"><img src="https://live.staticflickr.com/65535/55362954198_ccd51953f5_h.jpg" width="1600" height="1200" alt="Chabad of Hurlingham"/></a>
-            <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+        <div class="image-gallery">
+            <div class="gallery-item">
+                <img src="images/shabbat.png" alt="Shabbat Services at Chabad of Hurlingham">
+                <div class="gallery-caption">Shabbat Services</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/purim.png" alt="Purim Celebration">
+                <div class="gallery-caption">Purim Celebration</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/chanukah.png" alt="Chanukah Menorah Lighting">
+                <div class="gallery-caption">Public Menorah Lighting</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/shiur.png" alt="Community Torah Class">
+                <div class="gallery-caption">Weekly Torah Study</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/children.png" alt="Children's Holiday Program">
+                <div class="gallery-caption">Youth Programs</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/black.png" alt="Chabad of Hurlingham Sanctuary">
+                <div class="gallery-caption">Our Sanctuary</div>
+            </div>
         </div>
     </div>
 
